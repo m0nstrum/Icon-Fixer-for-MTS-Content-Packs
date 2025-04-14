@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+dist/
+build/
+*.egg-info/
+
+*.manifest
+# Не игнорируем spec-файлы
+
+venv/
+env/
+.env
+
+.idea/
+.vscode/
+*.swp
+*.swo
+
+.DS_Store
+Thumbs.db

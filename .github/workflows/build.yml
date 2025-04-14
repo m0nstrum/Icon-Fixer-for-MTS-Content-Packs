@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        # Удаление pathlib, если он установлен (может быть установлен глобально)
+        python -m pip uninstall -y pathlib || true
+        
+    - name: Build with PyInstaller
+      run: |
+        pyinstaller "Icon Fixer for MTS Content Packs 1.16.5 to 1.20.1.spec"
+        
+    - name: Create Release and Upload Asset
+      uses: softprops/action-gh-release@v1
+      with:
+        name: Release ${{ github.ref_name }}
+        draft: false
+        prerelease: false
+        files: |
+          ./dist/Icon Fixer for MTS Content Packs 1.16.5 to 1.20.1.exe 
