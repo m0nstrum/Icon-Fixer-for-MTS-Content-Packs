@@ -1,6 +1,6 @@
 # Icon Fixer for MTS Content Packs
 
-A utility for fixing textures in add-ons for the Minecraft Transport Simulator (MTS) mod when transitioning from version 1.16.5 to 1.20.1.
+A utility for fixing textures in add-ons for the [Minecraft Transport Simulator (MTS) mod](https://github.com/DonBruce64/MinecraftTransportSimulator) when transitioning from version 1.16.5 to 1.20.1.
 
 This tool is based on the original script by [Jabobkrauskopf](https://github.com/JabobKrauskopf) with added GUI and additional functionality.
 
